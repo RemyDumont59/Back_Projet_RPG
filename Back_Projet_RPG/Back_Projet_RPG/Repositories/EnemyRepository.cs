@@ -4,10 +4,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Back_Projet_RPG.Repositories
 {
-    public class PlayerRepository : IRepository<Player>
+    public class EnemyRepository : IRepository<Player>
     {
         private ApplicationDbContext _dbContext { get; }
-        public PlayerRepository(ApplicationDbContext dbContext) 
+        public EnemyRepository(ApplicationDbContext dbContext) 
         {  
             _dbContext = dbContext; 
         }
