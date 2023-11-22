@@ -17,6 +17,7 @@ namespace Back_Projet_RPG.Extensions
             builder.Services.AddControllers();
             builder.AddDatabase();
             builder.AddRepositories();
+            builder.AddCors();
 
 
         }
@@ -25,15 +26,26 @@ namespace Back_Projet_RPG.Extensions
         {
 
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            builder.Services.AddDbContext<ApplicationDbContext>(option =>
             {
-                options.UseSqlServer(connectionString);
+                option.UseSqlServer(connectionString);
             });
         }
 
         private static void AddRepositories(this WebApplicationBuilder builder)
         {
             builder.Services.AddScoped<IRepository<Player>, PlayerRepository>();
+        }
+
+        private static void AddCors(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddCors(option =>
+            {
+                option.AddPolicy("allConnections", option =>
+                {
+                    option.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
         }
 
     }
