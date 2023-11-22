@@ -4,21 +4,21 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Back_Projet_RPG.Repositories
 {
-    public class EnemyRepository : IRepository<Player>
+    public class EnemyRepository : IRepository<Enemy>
     {
         private ApplicationDbContext _dbContext { get; }
         public EnemyRepository(ApplicationDbContext dbContext) 
         {  
             _dbContext = dbContext; 
         }
-        public async Task<List<Player>> GetAll()
+        public async Task<List<Enemy>> GetAll()
         {
-            return await _dbContext.Players.ToListAsync();
+            return await _dbContext.Enemies.ToListAsync();
         }
 
-        public async Task<Player?> GetById(int id)
+        public async Task<Enemy?> GetById(int id)
         {
-            return await _dbContext.Players.FindAsync(id);
+            return await _dbContext.Enemies.FindAsync(id);
         }
     }
 }
