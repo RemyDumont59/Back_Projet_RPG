@@ -35,6 +35,7 @@ namespace Back_Projet_RPG.Extensions
         private static void AddRepositories(this WebApplicationBuilder builder)
         {
             builder.Services.AddScoped<IRepository<Player>, PlayerRepository>();
+            builder.Services.AddScoped<IRepository<Enemy>, EnemyRepository>();
         }
 
         private static void AddCors(this WebApplicationBuilder builder)
