@@ -19,6 +19,7 @@ namespace Back_Projet_RPG.Data
                 new Player()
                 {
                     Id = 1,
+                    Name = "Player1",
                     LifePoint = 10,
                     Stamina = 10,
                     Strength = 10,
@@ -33,6 +34,7 @@ namespace Back_Projet_RPG.Data
                 new Enemy()
                 {
                     Id = 1,
+                    Name = "Enemy1",
                     LifePoint = 10,
                     Stamina = 10,
                     Strength = 10,
@@ -41,7 +43,13 @@ namespace Back_Projet_RPG.Data
                     Luck = 10
                 }
             };
+        modelBuilder.Entity<Player>().HasData(players);
+        modelBuilder.Entity<Enemy>().HasData(enemies);
+
         }
+        
+
+
 
     }
 }

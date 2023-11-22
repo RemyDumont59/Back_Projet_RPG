@@ -1,4 +1,6 @@
 ﻿using Back_Projet_RPG.Data;
+using Back_Projet_RPG.Models;
+using Back_Projet_RPG.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Microsoft.VisualBasic;
@@ -13,8 +15,9 @@ namespace Back_Projet_RPG.Extensions
         {
 
             builder.Services.AddControllers();
-
             builder.AddDatabase();
+            builder.AddRepositories();
+
 
         }
 
@@ -26,6 +29,11 @@ namespace Back_Projet_RPG.Extensions
             {
                 options.UseSqlServer(connectionString);
             });
+        }
+
+        private static void AddRepositories(this WebApplicationBuilder builder)
+        {
+            builder.Services.AddScoped<IRepository<Player>, PlayerRepository>();
         }
 
     }

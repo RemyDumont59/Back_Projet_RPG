@@ -4,6 +4,8 @@
     {
         public int Id { get; set; }
 
+        public string? Name { get; set; }
+
         public int LifePoint { get; set; }
         public int Strength { get; set; }
         public int Stamina { get; set; }
