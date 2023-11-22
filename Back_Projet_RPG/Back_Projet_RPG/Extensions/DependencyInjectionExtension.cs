@@ -17,8 +17,6 @@ namespace Back_Projet_RPG.Extensions
             builder.Services.AddControllers();
             builder.AddDatabase();
             builder.AddRepositories();
-            builder.AddCors();
-
 
         }
 
@@ -36,17 +34,6 @@ namespace Back_Projet_RPG.Extensions
         {
             builder.Services.AddScoped<IRepository<Player>, PlayerRepository>();
             builder.Services.AddScoped<IRepository<Enemy>, EnemyRepository>();
-        }
-
-        private static void AddCors(this WebApplicationBuilder builder)
-        {
-            builder.Services.AddCors(option =>
-            {
-                option.AddPolicy("allConnections", option =>
-                {
-                    option.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
-                });
-            });
         }
 
     }
