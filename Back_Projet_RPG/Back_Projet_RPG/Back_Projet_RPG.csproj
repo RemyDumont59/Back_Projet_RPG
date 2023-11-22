@@ -20,7 +20,6 @@
     <Folder Include="Controllers\" />
     <Folder Include="DTOs\" />
     <Folder Include="Helpers\" />
-    <Folder Include="Extensions\" />
     <Folder Include="Validators\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
